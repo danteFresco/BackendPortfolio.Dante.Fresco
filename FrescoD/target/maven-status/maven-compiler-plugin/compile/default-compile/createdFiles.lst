@@ -25,6 +25,7 @@ com\portfolio\FrescoD\entidad\Skills.class
 com\portfolio\FrescoD\Security\Service\UserDetailsImpl.class
 com\portfolio\FrescoD\entidad\Educacion.class
 com\portfolio\FrescoD\Security\jwt\JwtEntryPoint.class
+com\portfolio\FrescoD\WebConfig.class
 com\portfolio\FrescoD\Dto\dtoSkills.class
 com\portfolio\FrescoD\Servicio\SEducacion.class
 com\portfolio\FrescoD\Security\Entity\UsuarioPrincipal.class
