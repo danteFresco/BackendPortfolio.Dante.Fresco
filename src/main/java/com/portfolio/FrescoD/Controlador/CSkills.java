@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Dante
  */
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"https://portfolio-fresco-d.web.app"})
 @RequestMapping("/skill")
 public class CSkills {
 
