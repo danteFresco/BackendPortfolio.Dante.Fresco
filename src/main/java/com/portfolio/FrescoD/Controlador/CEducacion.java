@@ -66,10 +66,21 @@ public class CEducacion {
         if(sEducacion.existsByNombreE(dtoeducacion.getNombreE())){
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
+         if(StringUtils.isBlank(dtoeducacion.getTitulo())){
+            return new ResponseEntity(new Mensaje("El titulo es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if(sEducacion.existsByTitulo(dtoeducacion.getTitulo())){
+            return new ResponseEntity(new Mensaje("Ese titulo ya existe"), HttpStatus.BAD_REQUEST);
+        }
+           if(StringUtils.isBlank(dtoeducacion.getDescripcionE())){
+            return new ResponseEntity(new Mensaje("El titulo es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if(sEducacion.existsByDescripcionE(dtoeducacion.getDescripcionE())){
+            return new ResponseEntity(new Mensaje("Esa Descripcion ya existe"), HttpStatus.BAD_REQUEST);
+        }
         
         Educacion educacion = new Educacion(
-                dtoeducacion.getNombreE(), dtoeducacion.getDescripcionE()
-            );
+                dtoeducacion.getNombreE(), dtoeducacion.getTitulo(), dtoeducacion.getDescripcionE(), dtoeducacion.getFechaE());
         sEducacion.save(educacion);
         return new ResponseEntity(new Mensaje("Educacion creada"), HttpStatus.OK);
                 
@@ -80,11 +91,23 @@ public class CEducacion {
         if(!sEducacion.existsById(id)){
             return new ResponseEntity(new Mensaje("No existe el ID"), HttpStatus.NOT_FOUND);
         }
-        if(sEducacion.existsByNombreE(dtoeducacion.getNombreE()) && sEducacion.getByNmbreE(dtoeducacion.getNombreE()).get().getId() != id){
+       if(StringUtils.isBlank(dtoeducacion.getNombreE())){
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if(sEducacion.existsByNombreE(dtoeducacion.getNombreE())){
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
-        if(StringUtils.isBlank(dtoeducacion.getNombreE())){
-            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
+         if(StringUtils.isBlank(dtoeducacion.getTitulo())){
+            return new ResponseEntity(new Mensaje("El titulo es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if(sEducacion.existsByTitulo(dtoeducacion.getTitulo())){
+            return new ResponseEntity(new Mensaje("Ese titulo ya existe"), HttpStatus.BAD_REQUEST);
+        }
+           if(StringUtils.isBlank(dtoeducacion.getDescripcionE())){
+            return new ResponseEntity(new Mensaje("El titulo es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if(sEducacion.existsByDescripcionE(dtoeducacion.getDescripcionE())){
+            return new ResponseEntity(new Mensaje("Esa Descripcion ya existe"), HttpStatus.BAD_REQUEST);
         }
         
         Educacion educacion = sEducacion.getOne(id).get();

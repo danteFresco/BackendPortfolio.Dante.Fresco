@@ -5,6 +5,7 @@
 package com.portfolio.FrescoD.Dto;
 
 import jakarta.validation.constraints.NotBlank;
+import java.util.Date;
 
 /**
  *
@@ -14,14 +15,20 @@ public class dtoEducacion {
       @NotBlank
     private String nombreE;
     @NotBlank
+    private String titulo;
+    @NotBlank
     private String descripcionE;
+    @NotBlank
+    private Date fechaE;
 
     public dtoEducacion() {
     }
 
-    public dtoEducacion(String nombreE, String descripcionE) {
+    public dtoEducacion(String nombreE, String titulo, String descripcionE, Date fechaE) {
         this.nombreE = nombreE;
+        this.titulo = titulo;
         this.descripcionE = descripcionE;
+        this.fechaE = fechaE;
     }
 
     public String getNombreE() {
@@ -32,6 +39,14 @@ public class dtoEducacion {
         this.nombreE = nombreE;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
     public String getDescripcionE() {
         return descripcionE;
     }
@@ -39,6 +54,14 @@ public class dtoEducacion {
     public void setDescripcionE(String descripcionE) {
         this.descripcionE = descripcionE;
     }
-    
+
+    public Date getFechaE() {
+        return fechaE;
+    }
+
+    public void setFechaE(Date fechaE) {
+        this.fechaE = fechaE;
+    }
+
     
 }
