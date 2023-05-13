@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/explab")
-@CrossOrigin(origins = {"**"})
+@CrossOrigin(origins = {"https://portfolio-fresco-d.web.app","http://localhost:4200"})
 
 public class CExperiencia {
      @Autowired
