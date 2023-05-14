@@ -66,9 +66,18 @@ public class CEducacion {
         if(sEducacion.existsByNombreE(dtoeducacion.getNombreE())){
             return new ResponseEntity(new Mensaje("Ese nombre ya existe"), HttpStatus.BAD_REQUEST);
         }
+         if(StringUtils.isBlank(dtoeducacion.getDescripcionE())){
+            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
+        }
+         if(StringUtils.isBlank(dtoeducacion.getTituloE())){
+            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
+        }
+         if(StringUtils.isBlank(dtoeducacion.getFechaE())){
+            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
+        }
         
         Educacion educacion = new Educacion(
-                dtoeducacion.getNombreE(), dtoeducacion.getDescripcionE()
+                dtoeducacion.getNombreE(),dtoeducacion.getTituloE() , dtoeducacion.getDescripcionE(), dtoeducacion.getFechaE()
             );
         sEducacion.save(educacion);
         return new ResponseEntity(new Mensaje("Educacion creada"), HttpStatus.OK);
@@ -86,11 +95,16 @@ public class CEducacion {
         if(StringUtils.isBlank(dtoeducacion.getNombreE())){
             return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
         }
-        
+         if(StringUtils.isBlank(dtoeducacion.getDescripcionE())){
+            return new ResponseEntity(new Mensaje("El campo no puede estar vacio"), HttpStatus.BAD_REQUEST);
+        }
+         
         Educacion educacion = sEducacion.getOne(id).get();
         
         educacion.setNombreE(dtoeducacion.getNombreE());
+        educacion.setTituloE(dtoeducacion.getTituloE());
         educacion.setDescripcionE(dtoeducacion.getDescripcionE());
+        educacion.setFechaE(dtoeducacion.getFechaE());
         
         sEducacion.save(educacion);
         
