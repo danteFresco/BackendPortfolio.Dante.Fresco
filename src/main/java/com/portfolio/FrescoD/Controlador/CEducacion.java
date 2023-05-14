@@ -113,7 +113,9 @@ public class CEducacion {
         Educacion educacion = sEducacion.getOne(id).get();
         
         educacion.setNombreE(dtoeducacion.getNombreE());
+        educacion.setTitulo(dtoeducacion.getTitulo());
         educacion.setDescripcionE(dtoeducacion.getDescripcionE());
+        educacion.setFechaE(dtoeducacion.getFechaE());
         
         sEducacion.save(educacion);
         
