@@ -49,12 +49,4 @@ public class SEducacion {
     public boolean existsByNombreE(String nombreE){
         return rEducacion.existsByNombreE(nombreE);
     }
-
-    public boolean existsByTitulo(String titulo) {
-        throw new UnsupportedOperationException("Not supported yet."); 
-    }
-
-    public boolean existsByDescripcionE(String descripcionE) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
