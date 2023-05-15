@@ -25,8 +25,6 @@ public class dtoExperiencia {
         this.descripcionE = descripcionE;
     }
 
-
-
     public String getNombreE() {
         return nombreE;
     }

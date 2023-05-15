@@ -43,8 +43,10 @@ public class CExperiencia {
     
     @GetMapping("/detail/{id}")
     public ResponseEntity<experiencia> getById(@PathVariable("id") int id){
-        if(!sExperiencia.existsById(id))
+        if(!sExperiencia.existsById(id)){
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
+        }
+        
         experiencia experienciA = sExperiencia.getOne(id).get();
         return new ResponseEntity(experienciA, HttpStatus.OK);
     }
@@ -61,14 +63,15 @@ public class CExperiencia {
     
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody dtoExperiencia dtoexp){      
-        if(StringUtils.isBlank(dtoexp.getNombreE()))
+        if(StringUtils.isBlank(dtoexp.getNombreE())){
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
-        if(sExperiencia.existsByNombreE(dtoexp.getNombreE()))
+        }
+        if(sExperiencia.existsByNombreE(dtoexp.getNombreE())){
             return new ResponseEntity(new Mensaje("Esa experiencia existe"), HttpStatus.BAD_REQUEST);
-          if(StringUtils.isBlank(dtoexp.getDescripcionE()))
-            return new ResponseEntity(new Mensaje("La descripcion es obligatoria"), HttpStatus.BAD_REQUEST);
+        } 
         
-        experiencia experienciA = new experiencia(dtoexp.getNombreE(), dtoexp.getDescripcionE());
+        experiencia experienciA = new experiencia(
+                dtoexp.getNombreE(), dtoexp.getDescripcionE());
         sExperiencia.save(experienciA);
         
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
@@ -90,6 +93,7 @@ public class CExperiencia {
         
         
         experiencia experienciA = sExperiencia.getOne(id).get();
+        
         experienciA.setNombreE(dtoexp.getNombreE());
         experienciA.setDescripcionE(dtoexp.getDescripcionE());
         

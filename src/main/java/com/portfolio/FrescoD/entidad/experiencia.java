@@ -24,8 +24,6 @@ public class experiencia {
     public experiencia() {
     }
 
-    
-
     public experiencia(String nombreE, String descripcionE) {
         this.nombreE = nombreE;
         this.descripcionE = descripcionE;
