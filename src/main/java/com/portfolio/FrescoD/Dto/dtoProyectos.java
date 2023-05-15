@@ -16,15 +16,12 @@ public class dtoProyectos {
     private String nombreP;
     @NotBlank
     private String descripcionP;
-    private String url;
-
     public dtoProyectos() {
     }
 
-    public dtoProyectos(String nombreP, String descripcionP, String url) {
+    public dtoProyectos(String nombreP, String descripcionP) {
         this.nombreP = nombreP;
         this.descripcionP = descripcionP;
-        this.url = url;
     }
 
     public String getnombreP() {
@@ -42,13 +39,4 @@ public class dtoProyectos {
     public void setdescripcionP(String descripcionP) {
         this.descripcionP = descripcionP;
     }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
 }

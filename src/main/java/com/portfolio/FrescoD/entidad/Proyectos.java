@@ -20,15 +20,13 @@ public class Proyectos {
     private int id;
     private String nombreP;
     private String descripcionP;
-    private String url;
 
     public Proyectos() {
     }
 
-    public Proyectos(String nombreP, String descripcionP, String url) {
+    public Proyectos(String nombreP, String descripcionP) {
         this.nombreP = nombreP;
         this.descripcionP = descripcionP;
-        this.url = url;
     }
 
 
@@ -54,15 +52,5 @@ public class Proyectos {
 
     public void setDescripcionP(String descripcionP) {
         this.descripcionP = descripcionP;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-    
-    
+    }    
 }

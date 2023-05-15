@@ -14,22 +14,15 @@ public class dtoEducacion {
       @NotBlank
     private String nombreE;
     @NotBlank
-    private String tituloE;
-    @NotBlank
     private String descripcionE;
-    @NotBlank
-    private String fechaE;
-    
+ 
     public dtoEducacion() {
     }
 
-    public dtoEducacion(String nombreE, String tituloE, String descripcionE, String fechaE) {
+    public dtoEducacion(String nombreE, String descripcionE) {
         this.nombreE = nombreE;
-        this.tituloE = tituloE;
         this.descripcionE = descripcionE;
-        this.fechaE = fechaE;
     }
-
 
     public String getNombreE() {
         return nombreE;
@@ -47,21 +40,4 @@ public class dtoEducacion {
         this.descripcionE = descripcionE;
     }
 
-    public String getTituloE() {
-        return tituloE;
-    }
-
-    public void setTituloE(String tituloE) {
-        this.tituloE = tituloE;
-    }
-
-    public String getFechaE() {
-        return fechaE;
-    }
-
-    public void setFechaE(String fechaE) {
-        this.fechaE = fechaE;
-    }
-    
-    
 }
